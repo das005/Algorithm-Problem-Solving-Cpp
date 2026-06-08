@@ -14,9 +14,13 @@ int degree_of_array(vector<int>nums) {
 
     unordered_map<int,int>last_element;
 
+    int degree =0;
+
     for (int i = 0 ; i<nums.size();i++) {
 
         frq[nums[i]]++;
+
+        max(degree,frq[nums[i]]);
 
       if (first_element.find(nums[i]) == first_element.end()) {
 
