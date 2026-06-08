@@ -16,11 +16,15 @@ int degree_of_array(vector<int>nums) {
 
     int degree =0;
 
+    int ans= 0;
+
     for (int i = 0 ; i<nums.size();i++) {
 
         frq[nums[i]]++;
 
         max(degree,frq[nums[i]]);
+
+        // checking if the element is available in first element or not to prevent override issue
 
       if (first_element.find(nums[i]) == first_element.end()) {
 
@@ -38,12 +42,18 @@ int degree_of_array(vector<int>nums) {
         int element = it.first;
         int frequeny = it.second;
 
-        if (frequeny == )
+        if (frequeny ==  degree) {
+
+            int length  = last_element[element] + first_element[element] +1;
+
+            ans = min(ans,length);
+
+
+        }
 
     }
 
-
-
+    return ans;
 
 }
 
@@ -52,6 +62,8 @@ int degree_of_array(vector<int>nums) {
 int main() {
 
     vector<int> nums = {1,2,2,3,1};
+
+    cout << degree_of_array(nums);
 
     return 0;
 
