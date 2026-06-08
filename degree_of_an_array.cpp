@@ -16,13 +16,13 @@ int degree_of_array(vector<int>nums) {
 
     int degree =0;
 
-    int ans= 0;
+    int ans= INT_MAX; //Start with largest possible value to find minimum length
 
     for (int i = 0 ; i<nums.size();i++) {
 
         frq[nums[i]]++;
 
-        max(degree,frq[nums[i]]);
+       degree = max(degree,frq[nums[i]]);
 
         // checking if the element is available in first element or not to prevent override issue
 
@@ -44,7 +44,7 @@ int degree_of_array(vector<int>nums) {
 
         if (frequeny ==  degree) {
 
-            int length  = last_element[element] + first_element[element] +1;
+            int length  = last_element[element] - first_element[element] +1;
 
             ans = min(ans,length);
 
